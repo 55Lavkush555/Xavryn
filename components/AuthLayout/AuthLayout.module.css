@@ -1,0 +1,93 @@
+.container {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--background);
+
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 24px;
+
+  padding: 32px;
+
+  box-shadow: var(--shadow);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  margin-bottom: 28px;
+
+  text-decoration: none;
+  gap: 0;
+}
+
+.logoX {
+  font-size: 50px;
+  font-weight: 800; /* slimmer than 900 */
+
+  color: var(--primary);
+
+  line-height: 1;
+
+  font-family: inherit;
+}
+
+.logoText {
+  font-size: 28px;
+  font-weight: 600;
+
+  color: var(--primary); /* 🔥 FIX: no more white */
+
+  margin-left: 0px;
+
+  letter-spacing: 0.5px;
+
+  line-height: 1;
+
+  font-family: inherit;
+}
+
+.header {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+  color: var(--text);
+}
+
+.subtitle {
+  color: var(--text-muted);
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}

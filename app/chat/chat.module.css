@@ -3,13 +3,15 @@
 
   height: 100vh;
 
-  background: var(--background);
+  background: #09090b;
 }
 
-.sidebar {
-  width: 350px;
+/* SIDEBAR */
 
-  background: var(--surface);
+.sidebar {
+  width: 340px;
+
+  background: rgba(20, 20, 28, 0.95);
 
   border-right: 1px solid var(--border);
 
@@ -17,6 +19,9 @@
 
   display: flex;
   flex-direction: column;
+
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 .logo {
@@ -47,45 +52,87 @@
 .searchBox input {
   width: 100%;
 
-  padding: 14px;
-
-  border: 1px solid var(--border);
+  padding: 14px 16px;
 
   border-radius: 14px;
 
-  background: var(--surface-light);
+  border: 1px solid var(--border);
 
-  color: var(--text);
+  background: #1a1a24;
+
+  color: white;
 
   outline: none;
+
+  transition: 0.2s ease;
 }
 
 .searchBox input:focus {
   border-color: var(--primary);
 }
 
-.main {
+/* CHAT AREA */
+
+.chatArea {
   flex: 1;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(168, 85, 247, 0.12),
+      transparent 30%
+    ),
+    #0b0b10;
+}
+
+/* HEADER */
+
+.header {
+  height: 80px;
+
+  padding: 0 24px;
+
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
   align-items: center;
+
+  background: rgba(15, 15, 20, 0.8);
+
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 
-.emptyState {
-  text-align: center;
+.userInfo {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
 }
 
-.emptyState h2 {
-  color: var(--text);
+.userInfo h3 {
+  color: white;
 
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 
-  font-size: 32px;
+  font-size: 17px;
 }
 
-.emptyState p {
-  color: var(--text-muted);
+.userInfo span {
+  color: #22c55e;
 
-  font-size: 16px;
+  font-size: 13px;
+}
+
+/* MESSAGES */
+
+.messages {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 28px;
 }

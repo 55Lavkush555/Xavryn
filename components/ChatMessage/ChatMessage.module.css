@@ -1,0 +1,70 @@
+.messageWrapper {
+  display: flex;
+
+  margin-bottom: 18px;
+}
+
+.own {
+  justify-content: flex-end;
+}
+
+.other {
+  justify-content: flex-start;
+}
+
+.messageBubble {
+  max-width: 70%;
+
+  padding: 14px 16px;
+
+  border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  animation: fadeIn 0.2s ease;
+}
+
+.own .messageBubble {
+  background: var(--primary);
+
+  color: white;
+
+  border-bottom-right-radius: 6px;
+}
+
+.other .messageBubble {
+  background: var(--surface-light);
+
+  color: var(--text);
+
+  border-bottom-left-radius: 6px;
+}
+
+.messageBubble p {
+  line-height: 1.5;
+
+  font-size: 15px;
+}
+
+.messageBubble span {
+  font-size: 11px;
+
+  opacity: 0.7;
+
+  align-self: flex-end;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

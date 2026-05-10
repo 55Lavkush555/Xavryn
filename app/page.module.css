@@ -1,27 +1,27 @@
-* {
+.home * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: white;
 }
 
-.container {
+.home {
   position: relative;
   min-height: 100vh;
   background: rgb(5 6 14);
 }
 
-nav {
+.home nav {
   width: max(80%, 300px);
   margin-inline: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgb(6 8 17);
+  background: rgb(0 1 6);
   padding: 1rem;
   border-radius: 10px;
   position: sticky;
-  top: 10;
+  top: 10px;
   z-index: 1000;
   opacity: 0.9;
   transition: opacity 0.5s ease-in-out;
@@ -39,7 +39,6 @@ nav {
   align-items: center;
   gap: 1rem;
   font-size: 25px;
-  color: rgb(175 130 255);
 }
 
 .login {
@@ -47,6 +46,7 @@ nav {
   background: none;
   cursor: pointer;
   padding-right: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
 .login>a:hover {
@@ -65,10 +65,11 @@ nav {
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
 
 .signup:hover {
-  background: rgb(98, 74, 255);
+  background: rgb(89, 64, 255);
 }
 
 .signup>a {
@@ -122,35 +123,27 @@ nav {
 .content>div>button.login>a {
   font-size: 15px;
 }
+
 .content>div>button.signup>a {
   font-size: 15px;
 }
 
-.feature-list {
+.featureList {
   display: flex;
   gap: 20px;
   font-size: 15px;
   max-width: 700px;
 }
 
-.feature-list>div {
+.featureList>div {
   display: flex;
   align-items: center;
   gap: 5px;
   color: rgb(125 128 138);
 }
 
-.feature-list>div>svg {
+.featureList>div>svg {
   width: 20px;
-}
-
-hr {
-  border: none;
-  height: 1px;
-  background: rgb(24, 24, 24);
-  margin-top: 15px;
-  width: max(80%, 300px);
-  margin-inline: auto;
 }
 
 .features>.content>h1 {
@@ -163,10 +156,10 @@ hr {
 }
 
 .features>.content {
-  gap:10px
+  gap: 10px
 }
 
-.feature-cards {
+.featureCards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -186,6 +179,11 @@ hr {
   flex-direction: column;
   gap: 15px;
   cursor: pointer;
+  transition: border 0.3s;
+}
+
+.card:hover {
+  border: 1px solid rgb(112 90 255);
 }
 
 .card>h3 {
@@ -203,19 +201,102 @@ hr {
   padding-bottom: 30vh;
 }
 
-.cta > .content > h1 {
+.cta>.content>h1 {
   font-size: 40px;
 }
 
-.cta > .content > p {
+.cta>.content>p {
   font-size: 15px;
 }
 
-.cta > .content {
+.cta>.content {
   gap: 20px;
 }
 
 .cta .signup {
   font-size: 20px;
   padding: 15px 30px;
+}
+
+.image>img {
+  width: min(100%, 600px);
+  height: auto;
+}
+
+@media (max-width: 1174px) {
+  .card {
+    width: 350px;
+  }
+}
+
+@media (max-width: 899px) {
+  .card {
+    width: 300px;
+  }
+}
+
+@media (max-width: 775px) {
+  .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 596px) {
+  .content>h1 {
+    font-size: 40px;
+  }
+
+  .cta>.content>h1 {
+    font-size: 30px;
+  }
+
+  .content>.featureList>div {
+    font-size: 13px;
+  }
+
+  .home nav {
+    width: 97%;
+  }
+
+  .home nav > .logo {
+    gap: 7px
+  }
+}
+
+@media (max-width: 436px) {
+  .cta>.content>h1 {
+    font-size: 25px;
+  }
+
+  .features>.content>h1 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 398px) {
+  .home nav>.logo {
+    font-size: 25px;
+  }
+
+  .home nav>.logo>img {
+    width: 38px;
+  }
+
+  .content>h1 {
+    font-size: 32px;
+  }
+
+  .content>p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 355px) {
+  .buttonsContainer {
+    display: none;
+  }
+
+  .card {
+    width: 95%;
+  }
 }

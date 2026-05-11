@@ -2,13 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  color: var(--text-color);
 }
 
 .home {
   position: relative;
   min-height: 100vh;
-  background: rgb(5 6 14);
+  background: var(--bg-color);
 }
 
 .home nav {
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgb(0 1 6);
+  background: var(--card-color);
   padding: 1rem;
   border-radius: 10px;
   position: sticky;
@@ -25,7 +25,7 @@
   z-index: 1000;
   opacity: 0.9;
   transition: opacity 0.5s ease-in-out;
-  border: 1px solid rgb(24, 24, 24);
+  border: 1px solid var(--border-color);
 }
 
 .logo>img {
@@ -50,12 +50,12 @@
 }
 
 .login>a:hover {
-  color: white;
+  color: var(--text-color);
 }
 
 .login>a {
   text-decoration: none;
-  color: rgb(125 128 138);
+  color: var(--text-color);
   font-size: 15px;
 }
 
@@ -111,7 +111,7 @@
 .content>div>button.login {
   padding: 15px 30px;
   border-radius: 5px;
-  border: 1px solid rgb(24, 24, 24);
+  border: 1px solid var(--border-color);
   background: none;
   cursor: pointer;
 }
@@ -172,9 +172,9 @@
 .card {
   width: 300px;
   padding: 20px;
-  background-color: rgb(4 6 13);
+  background-color: var(--card-color);
   border-radius: 10px;
-  border: 1px solid rgb(24, 24, 24);
+  border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -221,6 +221,7 @@
 .image>img {
   width: min(100%, 600px);
   height: auto;
+  border-radius: 10px;
 }
 
 @media (max-width: 1174px) {

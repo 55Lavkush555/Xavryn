@@ -1,0 +1,201 @@
+.settings nav {
+    width: 80%;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    padding:7px;
+    gap: 3px;
+    transition: opacity 0.5s ease-in-out;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.settings nav>img {
+    width: 45px;
+    height: 45px;
+    border-radius: 0.75rem;
+}
+
+.settings nav>button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings nav>button:hover {
+    background: var(--border-color);
+}
+
+.settings .divider {
+    background-color: var(--border-color);
+    height: 1px;
+    width: 100%;
+}
+
+.settings main {
+    width: 75%;
+    margin-inline: auto;
+    padding: 2rem;
+}
+
+.settings main h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.settings main p {
+    color: rgb(125 128 138);
+}
+
+.profileSetting {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 2rem;
+    width: 90%;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--card-color);
+    margin-inline: auto;
+}
+
+.avatarContainer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.avatarContainer > img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.avatarContainer > div > h3 {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-block: 5px;
+}
+
+.avatarContainer > div > button {
+    background: rgb(112 90 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.profileSetting div > p {
+    margin-block: 5px;
+    color: rgb(125 128 138)
+}
+
+.profileSetting div > input {
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 95%;
+    background-color: var(--input-color);
+    font-weight: 400;
+}
+
+.profileSetting div > input:focus {
+    outline: none;
+}
+
+.save {
+    display: flex;
+    justify-content: end;
+}
+
+.save > button {
+    background: rgb(112 90 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 17px;
+    margin-right: 20px;
+}
+
+.Appearance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    width: 90%;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--card-color);
+    margin-inline: auto;
+}
+
+.Appearance > div > h3 {
+    margin-block: 5px;;
+}
+
+.Appearance > div > p {
+    margin-block: 0px;
+    color: rgb(125 128 138)
+}
+
+.Appearance > div > button {
+    min-width: 45px;
+    min-height: 45px
+}
+
+.logout {
+    margin-top: 2rem;
+    width: 90%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: end;
+}
+
+.logout > button {
+    background: var(--input-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: red;
+    transition: all 0.3s ease;
+}
+
+.logout > button:hover {
+    transform: scale(1.05);
+}
+
+.hover {
+    transition: all 0.3s ease;
+}
+
+.hover:hover {
+    background: rgb(89, 64, 255);
+}
+
+@media (max-width: 700px) {
+    .settings main {
+        width: 100%;
+    }
+
+    .settings nav {
+        width: 100%;
+    }
+}

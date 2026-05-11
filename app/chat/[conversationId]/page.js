@@ -1,62 +1,62 @@
 import styles from './conversation.module.css';
 
-import Avatar from '@/components/Avatar/Avatar';
 import ChatMessage from '@/components/ChatMessage/ChatMessage';
 import ChatInput from '@/components/ChatInput/ChatInput';
+import Avatar from '@/components/Avatar/Avatar';
 
-const messages = [
-  {
-    id: 1,
-    sender: 'Lavkush',
-    message: 'Yo Zubi, the UI is looking clean now 👀',
-    time: '10:30 PM',
-    isOwnMessage: false,
-  },
-  {
-    id: 2,
-    sender: 'You',
-    message: 'Still needs polishing but it’s improving.',
-    time: '10:31 PM',
-    isOwnMessage: true,
-  },
-  {
-    id: 3,
-    sender: 'Lavkush',
-    message: 'Tomorrow let’s finish real-time sockets.',
-    time: '10:32 PM',
-    isOwnMessage: false,
-  },
-];
+import { chats } from '@/lib/chat';
 
-export default function ConversationPage() {
+export default async function ConversationPage({
+  params,
+}) {
+  const { conversationId } = await params;
+
+  const chat = chats.find(
+    (c) => c.id === conversationId
+  );
+
+  if (!chat) {
+    return (
+      <div className={styles.notFound}>
+        Conversation not found
+      </div>
+    );
+  }
+
   return (
-    <div className={styles.container}>
-      {/* Header */}
+    <div className={styles.wrapper}>
+      {/* HEADER */}
       <div className={styles.header}>
         <div className={styles.userInfo}>
-          <Avatar name="Lavkush" />
+          <Avatar name={chat.name} />
 
           <div>
-            <h3>Lavkush</h3>
-            <span>Online</span>
+            <h3>{chat.name}</h3>
+
+            <span>
+              {chat.online
+                ? 'Online'
+                : 'Offline'}
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Messages */}
+      {/* MESSAGES */}
       <div className={styles.messages}>
-        {messages.map((msg) => (
+        {chat.messages.map((msg) => (
           <ChatMessage
             key={msg.id}
-            message={msg.message}
-            sender={msg.sender}
+            message={msg.text}
             time={msg.time}
-            isOwnMessage={msg.isOwnMessage}
+            isOwnMessage={
+              msg.sender === 'me'
+            }
           />
         ))}
       </div>
 
-      {/* Input */}
+      {/* INPUT */}
       <ChatInput />
     </div>
   );

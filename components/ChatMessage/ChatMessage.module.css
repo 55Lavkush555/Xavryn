@@ -13,11 +13,11 @@
 }
 
 .messageBubble {
-  max-width: 70%;
+  max-width: 72%;
 
   padding: 14px 16px;
 
-  border-radius: 18px;
+  border-radius: 20px;
 
   display: flex;
   flex-direction: column;
@@ -25,20 +25,34 @@
   gap: 8px;
 
   animation: fadeIn 0.2s ease;
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .own .messageBubble {
-  background: var(--primary);
+  background:
+    linear-gradient(
+      135deg,
+      #9333ea,
+      #7e22ce
+    );
 
   color: white;
 
   border-bottom-right-radius: 6px;
+
+  box-shadow:
+    0 0 20px rgba(168, 85, 247, 0.2);
 }
 
 .other .messageBubble {
-  background: var(--surface-light);
+  background:
+    rgba(255, 255, 255, 0.04);
 
-  color: var(--text);
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
 
   border-bottom-left-radius: 6px;
 }

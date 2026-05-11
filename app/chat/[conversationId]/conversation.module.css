@@ -1,22 +1,25 @@
-.container {
+.wrapper {
   height: 100vh;
 
   display: flex;
   flex-direction: column;
-
-  background: var(--background);
 }
 
 .header {
-  padding: 18px 24px;
+  height: 80px;
 
-  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
 
-  background: var(--surface);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
+  background:
+    rgba(12, 12, 18, 0.82);
+
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 
 .userInfo {
@@ -27,15 +30,17 @@
 }
 
 .userInfo h3 {
-  color: var(--text);
+  color: white;
 
   margin-bottom: 4px;
+
+  font-size: 17px;
 }
 
 .userInfo span {
   color: #22c55e;
 
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .messages {
@@ -43,5 +48,13 @@
 
   overflow-y: auto;
 
-  padding: 24px;
+  padding: 28px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(168, 85, 247, 0.08),
+      transparent 28%
+    ),
+    #09090d;
 }

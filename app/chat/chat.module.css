@@ -3,47 +3,138 @@
 
   height: 100vh;
 
-  background: #09090b;
+  background: #09090d;
 }
 
 /* SIDEBAR */
 
 .sidebar {
-  width: 340px;
+  width: 360px;
 
-  background: rgba(20, 20, 28, 0.95);
+  padding: 24px 18px;
 
-  border-right: 1px solid var(--border);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
 
-  padding: 20px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18, 18, 28, 0.96),
+      rgba(10, 10, 16, 0.98)
+    );
 
   display: flex;
   flex-direction: column;
+
+  overflow-y: auto;
 
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
 
+/* LOGO */
+
 .logo {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 
-  margin-bottom: 24px;
+  margin-bottom: 26px;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  letter-spacing: -1px;
 }
 
 .logoX {
-  font-size: 42px;
-  font-weight: 800;
+  background:
+    linear-gradient(
+      135deg,
+      #a855f7,
+      #3b82f6
+    );
 
-  color: var(--primary);
+  -webkit-background-clip: text;
+background-clip: text;
+
+-webkit-text-fill-color: transparent;
+color: transparent;
+
+  margin-right: 2px;
+
+  font-size: 40px;
+
+  transform: skew(-8deg);
 }
 
 .logoText {
-  font-size: 24px;
-  font-weight: 600;
-
-  color: var(--primary);
+  color: #c084fc;
 }
+
+/* NOTES */
+
+.notesSection {
+  display: flex;
+
+  gap: 12px;
+
+  overflow-x: auto;
+
+  margin-bottom: 20px;
+
+  padding-bottom: 4px;
+}
+
+.notesSection::-webkit-scrollbar {
+  display: none;
+}
+
+.noteCard {
+  min-width: 170px;
+
+  padding: 14px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.18),
+      rgba(59, 130, 246, 0.12)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.2s ease,
+    border 0.2s ease;
+}
+
+.noteCard:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.noteCard span {
+  font-size: 20px;
+
+  display: block;
+
+  margin-bottom: 10px;
+}
+
+.noteCard p {
+  color: white;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+}
+
+/* SEARCH */
 
 .searchBox {
   margin-bottom: 20px;
@@ -54,21 +145,31 @@
 
   padding: 14px 16px;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
-  background: #1a1a24;
+  background:
+    rgba(255, 255, 255, 0.04);
 
   color: white;
 
   outline: none;
 
-  transition: 0.2s ease;
+  transition:
+    border 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.searchBox input::placeholder {
+  color: #7c7c8b;
 }
 
 .searchBox input:focus {
-  border-color: var(--primary);
+  border-color: #8b5cf6;
+
+  box-shadow:
+    0 0 22px rgba(139, 92, 246, 0.16);
 }
 
 /* CHAT AREA */
@@ -76,63 +177,13 @@
 .chatArea {
   flex: 1;
 
-  display: flex;
-  flex-direction: column;
-
   background:
     radial-gradient(
       circle at top left,
-      rgba(168, 85, 247, 0.12),
+      rgba(168, 85, 247, 0.08),
       transparent 30%
     ),
-    #0b0b10;
-}
+    #09090d;
 
-/* HEADER */
-
-.header {
-  height: 80px;
-
-  padding: 0 24px;
-
-  border-bottom: 1px solid var(--border);
-
-  display: flex;
-  align-items: center;
-
-  background: rgba(15, 15, 20, 0.8);
-
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-}
-
-.userInfo {
-  display: flex;
-  align-items: center;
-
-  gap: 14px;
-}
-
-.userInfo h3 {
-  color: white;
-
-  margin-bottom: 4px;
-
-  font-size: 17px;
-}
-
-.userInfo span {
-  color: #22c55e;
-
-  font-size: 13px;
-}
-
-/* MESSAGES */
-
-.messages {
-  flex: 1;
-
-  overflow-y: auto;
-
-  padding: 28px;
+  overflow: hidden;
 }

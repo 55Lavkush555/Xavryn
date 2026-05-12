@@ -1,42 +1,49 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
+
 import styles from './chat.module.css';
 
 import ChatList from '@/components/ChatList/ChatList';
 
-export default function ChatLayout({ children }) {
+import { chats } from '@/lib/chat';
+
+export default function ChatLayout({
+  children,
+}) {
+  const pathname = usePathname();
+
+  const activeChatId =
+    pathname.split('/')[2];
+
   return (
     <div className={styles.container}>
       {/* SIDEBAR */}
       <aside className={styles.sidebar}>
         {/* LOGO */}
         <div className={styles.logo}>
-          <span className={styles.logoX}>X</span>
+          <span className={styles.logoX}>
+            X
+          </span>
 
           <span className={styles.logoText}>
             avryn
           </span>
         </div>
 
-        {/* NOTES */}
-        <div className={styles.notesSection}>
-          {[
-            {
-              emoji: '💭',
-              text: 'Working on Xavryn UI',
-            },
-            {
-              emoji: '⚡',
-              text: 'New update tonight',
-            },
-          ].map((note, index) => (
-            <div
-              key={index}
-              className={styles.noteCard}
+        {/* INSTAGRAM STYLE NOTE */}
+        <div className={styles.notesWrapper}>
+          <div className={styles.noteCard}>
+            <span
+              className={styles.noteEmoji}
             >
-              <span>{note.emoji}</span>
+              💭
+            </span>
 
-              <p>{note.text}</p>
-            </div>
-          ))}
+            <p>
+              Building Xavryn UI
+            </p>
+          </div>
         </div>
 
         {/* SEARCH */}
@@ -48,7 +55,10 @@ export default function ChatLayout({ children }) {
         </div>
 
         {/* CHAT LIST */}
-        <ChatList />
+        <ChatList
+          chats={chats}
+          activeChatId={activeChatId}
+        />
       </aside>
 
       {/* CHAT AREA */}

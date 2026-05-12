@@ -1,17 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+
 import styles from './ChatInput.module.css';
 
-export default function ChatInput() {
-  const [message, setMessage] = useState('');
+export default function ChatInput({
+  onSendMessage,
+}) {
+  const [message, setMessage] =
+    useState('');
 
   const handleSend = () => {
     if (!message.trim()) return;
 
-    console.log('Message:', message);
+    onSendMessage(message);
 
     setMessage('');
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSend();
+    }
   };
 
   return (
@@ -20,7 +30,10 @@ export default function ChatInput() {
         type="text"
         placeholder="Type a message..."
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e) =>
+          setMessage(e.target.value)
+        }
+        onKeyDown={handleKeyDown}
       />
 
       <button onClick={handleSend}>

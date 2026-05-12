@@ -1,3 +1,11 @@
+'use client';
+
+import {
+  use,
+  useEffect,
+  useState,
+} from 'react';
+
 import styles from './conversation.module.css';
 
 import ChatMessage from '@/components/ChatMessage/ChatMessage';
@@ -6,14 +14,47 @@ import Avatar from '@/components/Avatar/Avatar';
 
 import { chats } from '@/lib/chat';
 
-export default async function ConversationPage({
+export default function ConversationPage({
   params,
 }) {
-  const { conversationId } = await params;
+  const resolvedParams = use(params);
+
+  const conversationId =
+    resolvedParams.conversationId;
 
   const chat = chats.find(
     (c) => c.id === conversationId
   );
+
+  const getInitialMessages = () => {
+    if (typeof window === 'undefined') {
+      return [];
+    }
+
+    const savedMessages =
+      localStorage.getItem(
+        `chat-${conversationId}`
+      );
+
+    if (savedMessages) {
+      return JSON.parse(savedMessages);
+    }
+
+    return chat?.messages || [];
+  };
+
+  const [messages, setMessages] =
+    useState(getInitialMessages);
+
+  /* SAVE MESSAGES */
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem(
+        `chat-${conversationId}`,
+        JSON.stringify(messages)
+      );
+    }
+  }, [messages, conversationId]);
 
   if (!chat) {
     return (
@@ -22,6 +63,31 @@ export default async function ConversationPage({
       </div>
     );
   }
+
+  const handleSendMessage = (
+    messageText
+  ) => {
+    const newMessage = {
+      id: Date.now(),
+
+      text: messageText,
+
+      sender: 'me',
+
+      time: new Date().toLocaleTimeString(
+        [],
+        {
+          hour: '2-digit',
+          minute: '2-digit',
+        }
+      ),
+    };
+
+    setMessages((prev) => [
+      ...prev,
+      newMessage,
+    ]);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -44,7 +110,7 @@ export default async function ConversationPage({
 
       {/* MESSAGES */}
       <div className={styles.messages}>
-        {chat.messages.map((msg) => (
+        {messages.map((msg) => (
           <ChatMessage
             key={msg.id}
             message={msg.text}
@@ -57,7 +123,11 @@ export default async function ConversationPage({
       </div>
 
       {/* INPUT */}
-      <ChatInput />
+      <ChatInput
+        onSendMessage={
+          handleSendMessage
+        }
+      />
     </div>
   );
 }

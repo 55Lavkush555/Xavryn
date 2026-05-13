@@ -2,6 +2,11 @@
 
 import Link from 'next/link';
 
+import {
+  useEffect,
+  useState,
+} from 'react';
+
 import styles from './ChatList.module.css';
 
 import Avatar from '@/components/Avatar/Avatar';
@@ -10,34 +15,35 @@ export default function ChatList({
   chats,
   activeChatId,
 }) {
-  const getLastMessage = (chat) => {
-    if (typeof window === 'undefined') {
-      return chat.messages?.[
-        chat.messages.length - 1
-      ]?.text;
-    }
+  const [latestMessages, setLatestMessages] =
+    useState({});
 
-    const savedMessages =
-      localStorage.getItem(
-        `chat-${chat.id}`
-      );
+  useEffect(() => {
+    const updatedMessages = {};
 
-    if (savedMessages) {
-      const parsed =
-        JSON.parse(savedMessages);
+    chats.forEach((chat) => {
+      const savedMessages =
+        localStorage.getItem(
+          `chat-${chat.id}`
+        );
 
-      return (
-        parsed[parsed.length - 1]
-          ?.text || 'No messages yet'
-      );
-    }
+      if (savedMessages) {
+        const parsed =
+          JSON.parse(savedMessages);
 
-    return (
-      chat.messages?.[
-        chat.messages.length - 1
-      ]?.text || 'No messages yet'
-    );
-  };
+        updatedMessages[chat.id] =
+          parsed[parsed.length - 1]
+            ?.text;
+      } else {
+        updatedMessages[chat.id] =
+          chat.messages?.[
+            chat.messages.length - 1
+          ]?.text;
+      }
+    });
+
+    setLatestMessages(updatedMessages);
+  }, [chats]);
 
   return (
     <div className={styles.chatList}>
@@ -57,7 +63,7 @@ export default function ChatList({
             {chat.online && (
               <span
                 className={
-                  styles.onlineDot
+                  styles.onlineIndicator
                 }
               ></span>
             )}
@@ -65,12 +71,15 @@ export default function ChatList({
 
           <div className={styles.chatInfo}>
             <div className={styles.topRow}>
-              <h3>{chat.name}</h3>
+              <h4>{chat.name}</h4>
             </div>
 
-            <p className={styles.lastMessage}>
-              {getLastMessage(chat)}
-            </p>
+            <div className={styles.bottomRow}>
+              <p>
+                {latestMessages[chat.id] ||
+                  'No messages yet'}
+              </p>
+            </div>
           </div>
         </Link>
       ))}

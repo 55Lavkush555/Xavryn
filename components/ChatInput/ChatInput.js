@@ -11,15 +11,20 @@ export default function ChatInput({
     useState('');
 
   const handleSend = () => {
-    if (!message.trim()) return;
+    const trimmed =
+      message.trim();
 
-    onSendMessage(message);
+    if (!trimmed) return;
+
+    onSendMessage(trimmed);
 
     setMessage('');
   };
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
+
       handleSend();
     }
   };
@@ -28,16 +33,21 @@ export default function ChatInput({
     <div className={styles.container}>
       <input
         type="text"
-        placeholder="Type a message..."
+        placeholder="Message..."
         value={message}
         onChange={(e) =>
           setMessage(e.target.value)
         }
         onKeyDown={handleKeyDown}
+        className={styles.input}
       />
 
-      <button onClick={handleSend}>
-        Send
+      <button
+        onClick={handleSend}
+        className={styles.sendButton}
+        disabled={!message.trim()}
+      >
+        ➜
       </button>
     </div>
   );

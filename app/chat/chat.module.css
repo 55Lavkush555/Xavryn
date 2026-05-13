@@ -73,7 +73,7 @@
   color: #a855f7;
 }
 
-/* NOTES */
+/* INSTAGRAM NOTES */
 
 .notesSection {
   display: flex;
@@ -92,7 +92,7 @@
 }
 
 .noteBubble {
-  min-width: 170px;
+  min-width: 180px;
 
   padding: 12px;
 
@@ -120,6 +120,8 @@
     box-shadow 0.2s ease;
 
   cursor: pointer;
+
+  flex-shrink: 0;
 }
 
 .noteBubble:hover {
@@ -162,6 +164,8 @@
   font-size: 13px;
 
   font-weight: 600;
+
+  display: block;
 }
 
 .noteText p {

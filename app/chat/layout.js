@@ -16,6 +16,11 @@ export default function ChatLayout({
   const activeChatId =
     pathname.split('/')[2];
 
+  const currentUser = {
+    name: 'Zainab',
+    username: '@zubithecoder',
+  };
+
   return (
     <div className={styles.container}>
       {/* SIDEBAR */}
@@ -31,19 +36,47 @@ export default function ChatLayout({
           </span>
         </div>
 
-        {/* INSTAGRAM STYLE NOTE */}
-        <div className={styles.notesWrapper}>
-          <div className={styles.noteCard}>
-            <span
-              className={styles.noteEmoji}
+        {/* NOTES */}
+        <div className={styles.notesSection}>
+          {[
+            {
+              name: 'Lavkush',
+              note:
+                'Grinding Xavryn UI ⚡',
+              avatar: 'L',
+            },
+            {
+              name: 'Sarah',
+              note:
+                'Late night coding 🌙',
+              avatar: 'S',
+            },
+            {
+              name: 'Alex',
+              note:
+                'UI getting clean fr',
+              avatar: 'A',
+            },
+          ].map((user, index) => (
+            <div
+              key={index}
+              className={styles.noteBubble}
             >
-              💭
-            </span>
+              <div
+                className={styles.noteAvatar}
+              >
+                {user.avatar}
+              </div>
 
-            <p>
-              Building Xavryn UI
-            </p>
-          </div>
+              <div
+                className={styles.noteText}
+              >
+                <span>{user.name}</span>
+
+                <p>{user.note}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* SEARCH */}
@@ -54,11 +87,34 @@ export default function ChatLayout({
           />
         </div>
 
-        {/* CHAT LIST */}
-        <ChatList
-          chats={chats}
-          activeChatId={activeChatId}
-        />
+        {/* CHATS */}
+        <div className={styles.chatListWrapper}>
+          <ChatList
+            chats={chats}
+            activeChatId={activeChatId}
+          />
+        </div>
+
+        {/* PROFILE */}
+        <div className={styles.profileCard}>
+          <div className={styles.profileAvatar}>
+            Z
+          </div>
+
+          <div className={styles.profileInfo}>
+            <h4>{currentUser.name}</h4>
+
+            <p>
+              {currentUser.username}
+            </p>
+          </div>
+
+          <button
+            className={styles.settingsBtn}
+          >
+            ⚙
+          </button>
+        </div>
       </aside>
 
       {/* CHAT AREA */}

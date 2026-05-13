@@ -1,84 +1,85 @@
 .messageWrapper {
   display: flex;
 
-  margin-bottom: 18px;
+  margin-bottom: 14px;
+
+  animation: fadeIn 0.2s ease;
 }
 
-.own {
+.ownWrapper {
   justify-content: flex-end;
 }
 
-.other {
+.otherWrapper {
   justify-content: flex-start;
 }
 
 .messageBubble {
   max-width: 72%;
 
-  padding: 14px 16px;
+  padding: 12px 14px;
 
   border-radius: 20px;
 
-  display: flex;
-  flex-direction: column;
+  position: relative;
 
-  gap: 8px;
-
-  animation: fadeIn 0.2s ease;
-
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
-
-.own .messageBubble {
-  background:
-    linear-gradient(
-      135deg,
-      #9333ea,
-      #7e22ce
-    );
-
-  color: white;
-
-  border-bottom-right-radius: 6px;
-
-  box-shadow:
-    0 0 20px rgba(168, 85, 247, 0.2);
-}
-
-.other .messageBubble {
-  background:
-    rgba(255, 255, 255, 0.04);
-
-  color: white;
-
-  border: 1px solid rgba(255, 255, 255, 0.05);
-
-  border-bottom-left-radius: 6px;
+  word-break: break-word;
 }
 
 .messageBubble p {
+  color: white;
+
+  font-size: 14px;
+
   line-height: 1.5;
 
-  font-size: 15px;
+  margin: 0 0 6px;
 }
 
 .messageBubble span {
   font-size: 11px;
 
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.6);
 
-  align-self: flex-end;
+  display: block;
+
+  text-align: right;
+}
+
+.ownMessage {
+  background:
+    linear-gradient(
+      135deg,
+      #a855f7,
+      #7c3aed
+    );
+
+  border-bottom-right-radius: 6px;
+
+  box-shadow:
+    0 0 20px rgba(168, 85, 247, 0.18);
+}
+
+.otherMessage {
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.05);
+
+  border-bottom-left-radius: 6px;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(4px);
+
+    transform: translateY(6px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
   }
 }

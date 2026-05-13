@@ -3,6 +3,7 @@
 import {
   use,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 
@@ -26,6 +27,9 @@ export default function ConversationPage({
     (c) => c.id === conversationId
   );
 
+  const messagesEndRef =
+    useRef(null);
+
   const getInitialMessages = () => {
     if (typeof window === 'undefined') {
       return [];
@@ -45,6 +49,15 @@ export default function ConversationPage({
 
   const [messages, setMessages] =
     useState(getInitialMessages);
+
+  /* AUTO SCROLL */
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView(
+      {
+        behavior: 'smooth',
+      }
+    );
+  }, [messages]);
 
   /* SAVE MESSAGES */
   useEffect(() => {
@@ -120,6 +133,8 @@ export default function ConversationPage({
             }
           />
         ))}
+
+        <div ref={messagesEndRef}></div>
       </div>
 
       {/* INPUT */}

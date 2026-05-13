@@ -1,12 +1,16 @@
+"use client"
 import React from 'react'
 import styles from "./page.module.css"
-import ThemeToggle from '@/components/ThemeToggle'
+import ThemeToggle from '@/components/ThemeToggle/ThemeToggle'
+import { useRouter } from "next/navigation";
 
 const page = () => {
+    const router = useRouter();
+
     return (
         <div className={styles.settings}>
             <nav>
-                <button>く</button>
+                <button onClick={() => router.back()}>く</button>
                 <img src="./images/logo.png" alt="" />
                 Settings
             </nav>
@@ -20,7 +24,7 @@ const page = () => {
                     <div className={styles.avatarContainer}>
                         <img src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
                         <div>
-                            <h3>Lavkush</h3>
+                            <h3>Jhon Doe</h3>
                             <button className={styles.hover}>Change Avatar</button>
                         </div>
                     </div>

@@ -1,0 +1,222 @@
+.profile nav {
+    width: 80%;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    padding: 7px;
+    gap: 3px;
+    transition: opacity 0.5s ease-in-out;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-block: 5px;
+}
+
+.profile nav>img {
+    width: 45px;
+    height: 45px;
+    border-radius: 0.75rem;
+}
+
+.profile nav>button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile nav>button:hover {
+    background: var(--border-color);
+}
+
+.profile .divider {
+    background-color: var(--border-color);
+    height: 1px;
+    width: 100%;
+}
+
+.profile main {
+    width: 80%;
+    margin-inline: auto;
+    margin-block: 2rem;
+}
+
+.profile main>.profileInfo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    margin-block: 2rem;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    padding-inline: 3rem;
+    padding-block: 3rem;
+    border-radius: 10px;
+}
+
+.profile main>.profileInfo>img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.profile main>.profileInfo>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.profile main>.profileInfo>div>h1 {
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    color: var(--text-color);
+}
+
+.profile main>.profileInfo>div>p {
+    color: #516ee6;
+    margin-block: 5px;
+    font-size: 15px;
+}
+
+.profile main>.profileInfo>div>div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* margin-block: 5px; */
+}
+
+.profile main>.profileInfo>div>div>button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgb(112 90 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.profile main>.profileInfo>div>div>button:hover {
+    background: rgb(89, 64, 255);
+}
+
+.profile main>.bio {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-block: 2rem;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    padding-inline: 3rem;
+    padding-block: 1rem;
+    border-radius: 10px;
+}
+
+.profile main>.bio>p {
+    margin: 0px;
+    font-size: 16px;
+}
+
+.profile main>.bio>span {
+    color: rgb(125 128 138);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.profile main>.detailsContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.profile main>.detailsContainer>.detailCard {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 10px;
+    width: 45%;
+    transition: all 0.3s ease;
+}
+
+.profile main>.detailsContainer>.detailCard>div>span {
+    color: rgb(125 128 138);
+    font-size: 15px;
+    font-weight: 500
+}
+
+.profile main>.detailsContainer>.detailCard>div>p {
+    margin-block: 3px;
+    font-size: 17px;
+}
+
+
+.profile main>.detailsContainer>.detailCard:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 700px) {
+    .profile nav {
+        width: 100%;
+    }
+
+    .profile main {
+        width: 90%;
+    }
+
+    .profile nav {
+        padding: 0px;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile main {
+        width: 95%;
+    }
+}
+
+@media (max-width: 500px) {
+    .profile main>.profileInfo {
+        padding-inline: 1rem;
+    }
+
+    .profile main>.bio {
+        padding-inline: 1rem;
+    }
+}
+
+@media (max-width: 419px) {
+    .profile main>.profileInfo {
+        justify-content: center;
+        text-align: center;
+        gap: 1rem;
+        /* padding-block: 2rem; */
+    }
+}
+
+@media (max-width: 800px) {
+    .profile main>.detailsContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile main>.detailsContainer>.detailCard {
+        width: 95%;
+    }
+}

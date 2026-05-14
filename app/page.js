@@ -1,6 +1,8 @@
+"use client"
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const iconStyle = {
@@ -32,7 +34,20 @@ export default function Home() {
         </div>
       </nav>
 
-      <div className={styles.content}>
+      <motion.div className={styles.content}
+        initial={{
+          opacity: 0,
+          y: 40,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+        }}
+      >
         <h1>Connect Beyond</h1>
         <h1 className={styles.blue}>Boundries</h1>
         <p>Experience seamless communication with end-to-end encryption, AI-powered features, and a beautiful interface designed for the way you connect.</p>
@@ -59,7 +74,7 @@ export default function Home() {
         <div className={styles.image}>
           <Image src="/images/demo.png" alt="" width={600} height={500} />
         </div>
-      </div>
+      </motion.div>
 
       <div className={styles.features}>
         <div className={styles.content}>
@@ -68,7 +83,24 @@ export default function Home() {
           <p>Powerful features designed to enhance your messaging experience and keep you connected with the people who matter most.</p>
         </div>
 
-        <div className={styles.featureCards}>
+        <motion.div className={styles.featureCards}
+          initial={{
+            opacity: 0,
+            y: 50,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+          }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+        >
           <div className={styles.card}>
             <div style={iconStyle} ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield w-6 h-6 text-foreground" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg></div>
             <h3>End-to-End Encryption</h3>
@@ -105,17 +137,34 @@ export default function Home() {
             <p>Personalize your experience with beautiful themes and customization options.</p>
           </div>
 
-        </div>
+        </motion.div>
       </div>
 
-      <div className={styles.cta}>
+      <motion.div className={styles.cta}
+        initial={{
+          opacity: 0,
+          y: 50,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+      >
         <div className={styles.content}>
           <h1>Ready to transform your</h1>
           <h1 className={styles.blue}>communication?</h1>
           <p>Join thousands of users who have already discovered a better way to connect. Experience seamless messaging designed for the modern world.</p>
           <button className={styles.signup}><Link href={"/"}>Get started</Link></button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

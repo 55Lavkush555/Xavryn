@@ -35,6 +35,11 @@
     background: var(--border-color);
 }
 
+.profile nav>button>a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
 .profile .divider {
     background-color: var(--border-color);
     height: 1px;
@@ -98,7 +103,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgb(112 90 255);
+    background: linear-gradient(112deg, #800080, #33006F);
     color: white;
     border: none;
     border-radius: 5px;

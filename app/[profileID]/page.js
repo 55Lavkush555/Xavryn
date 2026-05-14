@@ -4,6 +4,7 @@ import React from 'react'
 import styles from "./page.module.css"
 import { useParams } from 'next/navigation'
 import { useRouter } from "next/navigation";
+import Link from 'next/link';
 
 
 const page = () => {
@@ -13,7 +14,7 @@ const page = () => {
     return (
         <div className={styles.profile}>
             <nav>
-                <button onClick={() => router.back()} >く</button>
+                <button><Link href="/">く</Link></button>
                 <img src="./images/logo.png" alt="" />
                 Profile
             </nav>

@@ -49,19 +49,20 @@
   transition: all 0.3s ease-in-out;
 }
 
-.login>a:hover {
-  color: var(--text-color);
+.home nav .login>a:hover {
+  color: #db00db;
 }
 
 .login>a {
   text-decoration: none;
   color: var(--text-color);
   font-size: 15px;
+  transition: all 0.3s ease-in-out;
 }
 
 .signup {
   border: none;
-  background: rgb(112 90 255);
+  background: linear-gradient(112deg, #800080, #33006F);
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 5px;
@@ -69,7 +70,9 @@
 }
 
 .signup:hover {
-  background: rgb(89, 64, 255);
+  background: linear-gradient(0deg, #800080, #33006F);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .signup>a {
@@ -114,6 +117,11 @@
   border: 1px solid var(--border-color);
   background: none;
   cursor: pointer;
+}
+
+.content>div>button.login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .content>div>button.signup {
@@ -179,11 +187,13 @@
   flex-direction: column;
   gap: 15px;
   cursor: pointer;
-  transition: border 0.3s;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
   border: 1px solid rgb(112 90 255);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .card>h3 {
@@ -222,6 +232,13 @@
   width: min(100%, 600px);
   height: auto;
   border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.image>img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 1174px) {
@@ -259,7 +276,7 @@
     width: 97%;
   }
 
-  .home nav > .logo {
+  .home nav>.logo {
     gap: 7px
   }
 }

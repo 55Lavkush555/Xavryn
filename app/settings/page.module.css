@@ -3,7 +3,7 @@
     margin-inline: auto;
     display: flex;
     align-items: center;
-    padding:7px;
+    padding: 7px;
     gap: 3px;
     transition: opacity 0.5s ease-in-out;
     font-size: 1.5rem;
@@ -29,6 +29,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.settings nav>button>a {
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .settings nav>button:hover {
@@ -76,34 +81,41 @@
     align-items: center;
 }
 
-.avatarContainer > img {
+.avatarContainer>img {
     width: 70px;
     height: 70px;
     object-fit: cover;
     border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.avatarContainer > div > h3 {
+.avatarContainer>img:hover {
+    transform: scale(1.1);
+}
+
+.avatarContainer>div>h3 {
     font-size: 1.25rem;
     color: var(--text-color);
     margin-block: 5px;
 }
 
-.avatarContainer > div > button {
-    background: rgb(112 90 255);
+.avatarContainer>div>button {
+    background: linear-gradient(112deg, #800080, #33006F);
     color: white;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.profileSetting div > p {
+.profileSetting div>p {
     margin-block: 5px;
     color: rgb(125 128 138)
 }
 
-.profileSetting div > input {
+.profileSetting div>input {
     font-size: 16px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -111,10 +123,17 @@
     width: 95%;
     background-color: var(--input-color);
     font-weight: 400;
+    outline: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
-.profileSetting div > input:focus {
-    outline: none;
+.profileSetting div>input:hover {
+    outline: 1px solid #800080;
+}
+
+.profileSetting div>input:focus {
+    outline: 1px solid #800080;
+    box-shadow: 0 0 5px #800080;
 }
 
 .save {
@@ -122,8 +141,8 @@
     justify-content: end;
 }
 
-.save > button {
-    background: rgb(112 90 255);
+.save>button {
+    background: linear-gradient(112deg, #800080, #33006F);
     color: white;
     border: none;
     border-radius: 5px;
@@ -146,16 +165,17 @@
     margin-inline: auto;
 }
 
-.Appearance > div > h3 {
-    margin-block: 5px;;
+.Appearance>div>h3 {
+    margin-block: 5px;
+    ;
 }
 
-.Appearance > div > p {
+.Appearance>div>p {
     margin-block: 0px;
     color: rgb(125 128 138);
 }
 
-.Appearance > div > button {
+.Appearance>div>button {
     min-width: 45px;
     min-height: 45px
 }
@@ -168,19 +188,15 @@
     justify-content: end;
 }
 
-.logout > button {
-    background: var(--input-color);
-    border: 1px solid var(--border-color);
+.logout>button {
+    background: linear-gradient(112deg, #800080, #33006F);
+    border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
     font-size: 20px;
-    color: red;
     transition: all 0.3s ease;
-}
-
-.logout > button:hover {
-    transform: scale(1.05);
+    color: white;
 }
 
 .hover {
@@ -188,7 +204,9 @@
 }
 
 .hover:hover {
-    background: rgb(89, 64, 255);
+    background: linear-gradient(0deg, #800080, #33006F);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 700px) {

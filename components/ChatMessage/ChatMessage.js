@@ -1,28 +1,34 @@
+'use client';
+
 import styles from './ChatMessage.module.css';
 
 export default function ChatMessage({
   message,
   time,
-  isOwnMessage,
+  isOwnMessage = false,
 }) {
   return (
     <div
-      className={`${styles.messageWrapper} ${
+      className={
         isOwnMessage
-          ? styles.ownWrapper
-          : styles.otherWrapper
-      }`}
+          ? `${styles.messageWrapper} ${styles.ownWrapper}`
+          : `${styles.messageWrapper} ${styles.otherWrapper}`
+      }
     >
       <div
-        className={`${styles.messageBubble} ${
+        className={
           isOwnMessage
-            ? styles.ownMessage
-            : styles.otherMessage
-        }`}
+            ? `${styles.messageBubble} ${styles.ownBubble}`
+            : `${styles.messageBubble} ${styles.otherBubble}`
+        }
       >
-        <p>{message}</p>
+        <p className={styles.messageText}>
+          {message}
+        </p>
 
-        <span>{time}</span>
+        <span className={styles.messageTime}>
+          {time}
+        </span>
       </div>
     </div>
   );

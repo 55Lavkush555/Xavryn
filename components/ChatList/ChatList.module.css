@@ -1,7 +1,11 @@
 .chatList {
   display: flex;
+
   flex-direction: column;
-  gap: 10px;
+
+  gap: 14px;
+
+  margin-top: 18px;
 }
 
 .chatItem {
@@ -11,62 +15,79 @@
 
   gap: 14px;
 
-  padding: 14px;
+  padding: 16px;
 
-  border-radius: 18px;
+  border-radius: 24px;
 
   text-decoration: none;
 
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    border 0.2s ease;
+  background: rgba(255, 255, 255, 0.02);
 
   border: 1px solid transparent;
 
-  background: transparent;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .chatItem:hover {
-  background:
-    rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
 
-  transform: translateY(-1px);
+  background: rgba(124, 58, 237, 0.12);
+
+  border: 1px solid rgba(168, 85, 247, 0.22);
+
+  box-shadow:
+    0 10px 30px rgba(124, 58, 237, 0.18);
 }
 
 .active {
   background:
     linear-gradient(
       135deg,
-      rgba(168, 85, 247, 0.16),
-      rgba(59, 130, 246, 0.1)
+      rgba(124, 58, 237, 0.22),
+      rgba(59, 130, 246, 0.14)
     );
 
-  border:
-    1px solid rgba(168, 85, 247, 0.3);
+  border: 1px solid rgba(168, 85, 247, 0.45);
 
   box-shadow:
-    0 0 20px rgba(168, 85, 247, 0.08);
+    0 0 30px rgba(124, 58, 237, 0.25);
 }
 
-.avatarWrapper {
-  position: relative;
-}
+.avatar {
+  width: 58px;
 
-.onlineIndicator {
-  position: absolute;
-
-  bottom: 0;
-  right: 0;
-
-  width: 12px;
-  height: 12px;
+  height: 58px;
 
   border-radius: 50%;
 
-  background: #22c55e;
+  display: flex;
 
-  border: 2px solid #09090d;
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  font-size: 22px;
+
+  font-weight: 700;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9333ea,
+      #7c3aed,
+      #3b82f6
+    );
+
+  box-shadow:
+    0 6px 18px rgba(124, 58, 237, 0.35);
 }
 
 .chatInfo {
@@ -78,33 +99,46 @@
 .topRow {
   display: flex;
 
-  justify-content: space-between;
-
   align-items: center;
+
+  gap: 8px;
 
   margin-bottom: 4px;
 }
 
-.topRow h4 {
+.topRow h3 {
+  font-size: 17px;
+
+  font-weight: 700;
+
   color: white;
-
-  font-size: 15px;
-
-  font-weight: 600;
 
   margin: 0;
 }
 
-.bottomRow p {
-  color: #9ca3af;
+.lastMessage {
+  font-size: 14px;
 
-  font-size: 13px;
+  color: rgba(255, 255, 255, 0.62);
 
-  overflow: hidden;
+  margin: 0;
 
   white-space: nowrap;
 
-  text-overflow: ellipsis;
+  overflow: hidden;
 
-  margin: 0;
+  text-overflow: ellipsis;
+}
+
+.onlineDot {
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #00ff66;
+
+  box-shadow:
+    0 0 10px rgba(0, 255, 102, 0.8);
 }

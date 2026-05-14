@@ -1,120 +1,69 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-
 import styles from './chat.module.css';
 
 import ChatList from '@/components/ChatList/ChatList';
+import Logo from '@/components/Logo/Logo';
 
-import { chats } from '@/lib/chat';
+const chats = [
+  {
+    id: 1,
+    name: 'Lavkush',
+    message: 'So finally it’s working!',
+    time: '10:32 PM',
+    online: true,
+    avatar: 'L',
+  },
+  {
+    id: 2,
+    name: 'Sarah',
+    message: 'The UI glow looks clean now.',
+    time: '9:18 PM',
+    online: false,
+    avatar: 'S',
+  },
+  {
+    id: 3,
+    name: 'Alex',
+    message: 'Need sockets next phase.',
+    time: 'Yesterday',
+    online: true,
+    avatar: 'A',
+  },
+];
 
-export default function ChatLayout({
-  children,
-}) {
-  const pathname = usePathname();
-
-  const activeChatId =
-    pathname.split('/')[2];
-
-  const currentUser = {
-    name: 'Zainab',
-    username: '@zubithecoder',
-  };
-
+export default function ChatLayout({ children }) {
   return (
     <div className={styles.container}>
       {/* SIDEBAR */}
       <aside className={styles.sidebar}>
         {/* LOGO */}
-        <div className={styles.logo}>
-          <span className={styles.logoX}>
-            X
-          </span>
-
-          <span className={styles.logoText}>
-            avryn
-          </span>
+        <div className={styles.logoWrapper}>
+          <Logo size="medium" />
         </div>
 
-        {/* NOTES */}
-        <div className={styles.notesSection}>
-          {[
-            {
-              name: 'Lavkush',
-              note:
-                'Grinding Xavryn UI ⚡',
-              avatar: 'L',
-            },
-            {
-              name: 'Sarah',
-              note:
-                'Late night coding 🌙',
-              avatar: 'S',
-            },
-            {
-              name: 'Alex',
-              note:
-                'UI getting clean fr',
-              avatar: 'A',
-            },
-          ].map((user, index) => (
-            <div
-              key={index}
-              className={styles.noteBubble}
-            >
-              <div
-                className={styles.noteAvatar}
-              >
-                {user.avatar}
-              </div>
+        {/* INSTAGRAM STYLE NOTE */}
+        <div className={styles.noteCard}>
+          <div className={styles.noteAvatar}>Z</div>
 
-              <div
-                className={styles.noteText}
-              >
-                <span>{user.name}</span>
+          <div>
+            <p className={styles.noteTitle}>Your Note</p>
 
-                <p>{user.note}</p>
-              </div>
-            </div>
-          ))}
+            <p className={styles.noteText}>
+              Building Xavryn tonight ⚡
+            </p>
+          </div>
         </div>
 
         {/* SEARCH */}
-        <div className={styles.searchBox}>
-          <input
-            type="text"
-            placeholder="Search conversations"
-          />
-        </div>
+        <input
+          type="text"
+          placeholder="Search conversations"
+          className={styles.search}
+        />
 
-        {/* CHATS */}
-        <div className={styles.chatListWrapper}>
-          <ChatList
-            chats={chats}
-            activeChatId={activeChatId}
-          />
-        </div>
-
-        {/* PROFILE */}
-        <div className={styles.profileCard}>
-          <div className={styles.profileAvatar}>
-            Z
-          </div>
-
-          <div className={styles.profileInfo}>
-            <h4>{currentUser.name}</h4>
-
-            <p>
-              {currentUser.username}
-            </p>
-          </div>
-
-          <button
-            className={styles.settingsBtn}
-          >
-            ⚙
-          </button>
-        </div>
+        {/* CHAT LIST */}
+        <ChatList chats={chats} activeChatId="1" />
       </aside>
 
       {/* CHAT AREA */}

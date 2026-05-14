@@ -1,88 +1,54 @@
 'use client';
 
 import Link from 'next/link';
-
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useParams } from 'next/navigation';
 
 import styles from './ChatList.module.css';
 
-import Avatar from '@/components/Avatar/Avatar';
+export default function ChatList({ chats = [] }) {
+  const params = useParams();
 
-export default function ChatList({
-  chats,
-  activeChatId,
-}) {
-  const [latestMessages, setLatestMessages] =
-    useState({});
-
-  useEffect(() => {
-    const updatedMessages = {};
-
-    chats.forEach((chat) => {
-      const savedMessages =
-        localStorage.getItem(
-          `chat-${chat.id}`
-        );
-
-      if (savedMessages) {
-        const parsed =
-          JSON.parse(savedMessages);
-
-        updatedMessages[chat.id] =
-          parsed[parsed.length - 1]
-            ?.text;
-      } else {
-        updatedMessages[chat.id] =
-          chat.messages?.[
-            chat.messages.length - 1
-          ]?.text;
-      }
-    });
-
-    setLatestMessages(updatedMessages);
-  }, [chats]);
+  const activeChatId = params.conversationId;
 
   return (
     <div className={styles.chatList}>
-      {chats.map((chat) => (
-        <Link
-          key={chat.id}
-          href={`/chat/${chat.id}`}
-          className={`${styles.chatItem} ${
-            activeChatId === chat.id
-              ? styles.active
-              : ''
-          }`}
-        >
-          <div className={styles.avatarWrapper}>
-            <Avatar name={chat.name} />
+      {chats.map((chat) => {
+        const isActive =
+          String(activeChatId) === String(chat.id);
 
-            {chat.online && (
-              <span
-                className={
-                  styles.onlineIndicator
-                }
-              ></span>
-            )}
-          </div>
-
-          <div className={styles.chatInfo}>
-            <div className={styles.topRow}>
-              <h4>{chat.name}</h4>
+        return (
+          <Link
+            key={chat.id}
+            href={`/chat/${chat.id}`}
+            className={`${styles.chatItem} ${
+              isActive ? styles.active : ''
+            }`}
+          >
+            {/* AVATAR */}
+            <div className={styles.avatar}>
+              {chat.name.charAt(0)}
             </div>
 
-            <div className={styles.bottomRow}>
-              <p>
-                {latestMessages[chat.id] ||
-                  'No messages yet'}
+            {/* CHAT INFO */}
+            <div className={styles.chatInfo}>
+              <div className={styles.topRow}>
+                <h3 className={styles.name}>
+                  {chat.name}
+                </h3>
+
+                {chat.online && (
+                  <span className={styles.onlineDot}></span>
+                )}
+              </div>
+
+              {/* LAST MESSAGE */}
+              <p className={styles.lastMessage}>
+                {chat.lastMessage}
               </p>
             </div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        );
+      })}
     </div>
   );
 }

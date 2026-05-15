@@ -115,7 +115,8 @@
     color: rgb(125 128 138)
 }
 
-.profileSetting div>input {
+.profileSetting div>input, .profileSetting div>textarea {
+    color: var(--text-color);
     font-size: 16px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -127,11 +128,16 @@
     transition: all 0.3s ease;
 }
 
-.profileSetting div>input:hover {
+.profileSetting div>textarea {
+    height: 100px;
+    resize: none;
+}
+
+.profileSetting div>input:hover, .profileSetting div>textarea:hover {
     outline: 1px solid #800080;
 }
 
-.profileSetting div>input:focus {
+.profileSetting div>input:focus, .profileSetting div>textarea:focus {
     outline: 1px solid #800080;
     box-shadow: 0 0 5px #800080;
 }
@@ -163,6 +169,12 @@
     border-radius: 0.5rem;
     background: var(--card-color);
     margin-inline: auto;
+    transition: outline 0.3s ease;
+    outline: 1px solid var(--border-color);
+}
+
+.Appearance:hover {
+    outline: 1px solid #800080;
 }
 
 .Appearance>div>h3 {

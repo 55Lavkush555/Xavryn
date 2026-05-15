@@ -51,6 +51,10 @@ const page = () => {
                         <p>Username</p>
                         <input type="text" placeholder='e.g. Jhon.dev' />
                     </div>
+                    <div>
+                        <p>Bio</p>
+                        <textarea name="Bio" id=""></textarea>
+                    </div>
                     <div className={styles.save}>
                         <button className={styles.hover}>Save Changes</button>
                     </div>

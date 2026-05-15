@@ -63,6 +63,13 @@
     padding-inline: 3rem;
     padding-block: 3rem;
     border-radius: 10px;
+    transition: box-shadow 0.3s ease, outline 0.3s ease;
+    outline: 1px solid var(--border-color);
+}
+
+.profile main>.profileInfo:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    outline: 1px solid #800080;
 }
 
 .profile main>.profileInfo>img {
@@ -70,6 +77,12 @@
     height: 8rem;
     border-radius: 10px;
     object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile main>.profileInfo>img:hover {
+    transform: scale(1.05);
 }
 
 .profile main>.profileInfo>div {
@@ -114,7 +127,9 @@
 }
 
 .profile main>.profileInfo>div>div>button:hover {
-    background: rgb(89, 64, 255);
+    background: linear-gradient(0deg, #800080, #33006F);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .profile main>.bio {
@@ -128,6 +143,14 @@
     padding-inline: 3rem;
     padding-block: 1rem;
     border-radius: 10px;
+    transition: box-shadow 0.3s ease, outline 0.3s ease;
+    outline: 1px solid var(--border-color);
+}
+
+.profile main>.bio:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    outline: 1px solid #800080;
+
 }
 
 .profile main>.bio>p {
@@ -158,6 +181,7 @@
     border-radius: 10px;
     width: 45%;
     transition: all 0.3s ease;
+    outline: 1px solid var(--border-color);
 }
 
 .profile main>.detailsContainer>.detailCard>div>span {
@@ -173,7 +197,9 @@
 
 
 .profile main>.detailsContainer>.detailCard:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    outline: 1px solid #800080;
 }
 
 @media (max-width: 700px) {

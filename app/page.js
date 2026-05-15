@@ -50,7 +50,7 @@ export default function Home() {
       >
         <h1>Connect Beyond</h1>
         <h1 className={styles.blue}>Boundries</h1>
-        <p>Experience seamless communication with end-to-end encryption, AI-powered features, and a beautiful interface designed for the way you connect.</p>
+        <p>Experience seamless communication with security, AI-powered features, and a beautiful interface designed for the way you connect.</p>
         <div className={styles.btn}>
           <button className={styles.login}><Link href={"/"}>Sign in</Link></button>
           <button className={styles.signup}><Link href={"/"}>Get started</Link></button>
@@ -59,7 +59,7 @@ export default function Home() {
         <div className={styles.featureList}>
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield w-5 h-5 text-primary" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
-            End-to-End Encryption</div>
+            Secure Auhentication</div>
 
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-zap w-5 h-5 text-primary" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
@@ -103,8 +103,8 @@ export default function Home() {
         >
           <div className={styles.card}>
             <div style={iconStyle} ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield w-6 h-6 text-foreground" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg></div>
-            <h3>End-to-End Encryption</h3>
-            <p>Your messages are secured with military-grade encryption. Only you and your recipients can read them.</p>
+            <h3>Secure Authentication</h3>
+            <p>Built with modern security practices to keep your conversations protected</p>
           </div>
 
           <div className={styles.card}>

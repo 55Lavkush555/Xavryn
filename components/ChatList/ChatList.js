@@ -1,27 +1,34 @@
 'use client';
 
 import Link from 'next/link';
+
 import { useParams } from 'next/navigation';
 
 import styles from './ChatList.module.css';
 
-export default function ChatList({ chats = [] }) {
+export default function ChatList({
+  chats = [],
+}) {
   const params = useParams();
 
-  const activeChatId = params.conversationId;
+  const activeChatId =
+    params?.conversationId;
 
   return (
     <div className={styles.chatList}>
       {chats.map((chat) => {
         const isActive =
-          String(activeChatId) === String(chat.id);
+          String(activeChatId) ===
+          String(chat.id);
 
         return (
           <Link
             key={chat.id}
             href={`/chat/${chat.id}`}
             className={`${styles.chatItem} ${
-              isActive ? styles.active : ''
+              isActive
+                ? styles.active
+                : ''
             }`}
           >
             {/* AVATAR */}
@@ -29,7 +36,7 @@ export default function ChatList({ chats = [] }) {
               {chat.name.charAt(0)}
             </div>
 
-            {/* CHAT INFO */}
+            {/* INFO */}
             <div className={styles.chatInfo}>
               <div className={styles.topRow}>
                 <h3 className={styles.name}>
@@ -37,11 +44,12 @@ export default function ChatList({ chats = [] }) {
                 </h3>
 
                 {chat.online && (
-                  <span className={styles.onlineDot}></span>
+                  <span
+                    className={styles.onlineDot}
+                  ></span>
                 )}
               </div>
 
-              {/* LAST MESSAGE */}
               <p className={styles.lastMessage}>
                 {chat.lastMessage}
               </p>

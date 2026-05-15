@@ -1,40 +1,44 @@
 .logo {
   display: flex;
-
   align-items: center;
 
-  gap: 1px;
-
   -webkit-user-select: none;
-
   user-select: none;
 }
 
-.small {
-  font-size: 28px;
-}
-
 .large {
-  font-size: 38px;
+  font-size: 34px;
 }
 
-/* REAL LOGO IMAGE */
-
-.logoImage {
-  object-fit: contain;
-
-  filter:
-    drop-shadow(0 0 12px rgba(168, 85, 247, 0.28));
+.small {
+  font-size: 26px;
 }
 
-/* avryn */
+.logoX {
+  background:
+    linear-gradient(
+      135deg,
+      #d946ef,
+      #7c3aed,
+      #3b82f6
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  font-weight: 900;
+
+  transform: skewX(-10deg);
+
+  letter-spacing: -5px;
+}
 
 .logoText {
-  color: #a855f7;
+  color: #ffffff;
 
   font-weight: 700;
 
-  letter-spacing: -2px;
-
-  margin-left: -6px;
+  margin-left: -2px;
 }

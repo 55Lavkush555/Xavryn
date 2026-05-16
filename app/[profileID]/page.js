@@ -3,19 +3,17 @@
 import React from 'react'
 import styles from "./page.module.css"
 import { useParams } from 'next/navigation'
-import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import { motion } from "framer-motion";
 
 
 const page = () => {
     const { profileID } = useParams()
-    const router = useRouter();
 
     return (
         <div className={styles.profile}>
             <nav>
-                <button><Link href="/">く</Link></button>
+                <button><Link href="/chat">く</Link></button>
                 <img src="./images/logo.png" alt="" />
                 Profile
             </nav>
@@ -89,7 +87,7 @@ const page = () => {
                             borderRadius: "0.5rem",
                             width: "2.5rem",
                             height: "2.5rem",
-                            backgroundColor: "color-mix(in oklab, lab(56.2609% 29.7111 -85.0704) 10%, transparent);",
+                            backgroundColor: "color-mix(in oklab, lab(56.2609% 29.7111 -85.0704) 10%, transparent)",
                             color: "rgb(90 122 255)",
                         }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail w-5 h-5 text-primary" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
@@ -110,7 +108,7 @@ const page = () => {
                             borderRadius: "0.5rem",
                             width: "2.5rem",
                             height: "2.5rem",
-                            backgroundColor: "color-mix(in oklab, lab(70.5521% -66.5147 45.8073) 10%, transparent);",
+                            backgroundColor: "color-mix(in oklab, lab(70.5521% -66.5147 45.8073) 10%, transparent)",
                             color: "rgb(0 201 80)",
                         }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-calendar w-5 h-5 text-green-500" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>

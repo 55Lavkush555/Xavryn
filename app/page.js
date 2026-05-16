@@ -29,8 +29,8 @@ export default function Home() {
         <div className={styles.logo}><img src="./images/logo.png" alt="" /> Xavryn</div>
 
         <div className={styles.buttonsContainer}>
-          <button className={styles.login}><Link href={"/"}>Sign in</Link></button>
-          <button className={styles.signup}><Link href={"/"}>Get started</Link></button>
+          <button className={styles.login}><Link href={"/auth/login"}>Sign in</Link></button>
+          <button className={styles.signup}><Link href={"/auth/register"}>Get started</Link></button>
         </div>
       </nav>
 
@@ -52,8 +52,8 @@ export default function Home() {
         <h1 className={styles.blue}>Boundries</h1>
         <p>Experience seamless communication with security, AI-powered features, and a beautiful interface designed for the way you connect.</p>
         <div className={styles.btn}>
-          <button className={styles.login}><Link href={"/"}>Sign in</Link></button>
-          <button className={styles.signup}><Link href={"/"}>Get started</Link></button>
+          <button className={styles.login}><Link href={"/auth/login"}>Sign in</Link></button>
+          <button className={styles.signup}><Link href={"/auth/register"}>Get started</Link></button>
         </div>
 
         <div className={styles.featureList}>
@@ -162,7 +162,7 @@ export default function Home() {
           <h1>Ready to transform your</h1>
           <h1 className={styles.blue}>communication?</h1>
           <p>Join thousands of users who have already discovered a better way to connect. Experience seamless messaging designed for the modern world.</p>
-          <button className={styles.signup}><Link href={"/"}>Get started</Link></button>
+          <button className={styles.signup}><Link href={"/auth/register"}>Get started</Link></button>
         </div>
       </motion.div>
     </div>

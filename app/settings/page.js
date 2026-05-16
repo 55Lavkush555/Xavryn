@@ -3,16 +3,14 @@ import React from 'react'
 import styles from "./page.module.css"
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle'
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import Link from 'next/link';
 
 const page = () => {
-    const router = useRouter();
 
     return (
         <div className={styles.settings}>
             <nav>
-                <button><Link href="/">く</Link></button>
+                <button><Link href="/chat">く</Link></button>
                 <img src="./images/logo.png" alt="" />
                 Settings
             </nav>

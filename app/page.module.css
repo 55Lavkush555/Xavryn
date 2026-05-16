@@ -66,13 +66,13 @@
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 5px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 .signup:hover {
   background: linear-gradient(0deg, #800080, #33006F);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 25px #800080;
 }
 
 .signup>a {
@@ -117,11 +117,13 @@
   border: 1px solid var(--border-color);
   background: none;
   cursor: pointer;
+  outline: 1px solid var(--border-color);
 }
 
 .content>div>button.login:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 25px #800080;
+  outline: 1px solid #800080;
 }
 
 .content>div>button.signup {

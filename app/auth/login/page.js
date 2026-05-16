@@ -7,7 +7,8 @@ import AuthLayout from '@/components/AuthLayout/AuthLayout';
 import Input from '@/components/Input/Input';
 import Button from '@/components/Button/Button';
 import { loginUser } from '@/lib/auth';
-import styles from './login.module.css';
+import { saveSession } from '@/lib/session';
+import styles from '../auth-shared.module.css';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -60,9 +61,8 @@ export default function LoginPage() {
       const result = await loginUser(formData.email, formData.password);
       
       if (result.success) {
-        localStorage.setItem('token', result.token);
-        localStorage.setItem('user', JSON.stringify(result.user));
-        router.push('/');
+        saveSession(result.user, result.token);
+        router.push('/chat');
       } else {
         setGeneralError(result.error);
       }
@@ -91,9 +91,8 @@ export default function LoginPage() {
         username: 'googleuser',
       };
       
-      localStorage.setItem('token', 'mock-google-token');
-      localStorage.setItem('user', JSON.stringify(mockGoogleUser));
-      router.push('/');
+      saveSession(mockGoogleUser, 'mock-google-token');
+      router.push('/chat');
     } catch (error) {
       setGeneralError('Google sign in failed. Please try again.');
     } finally {

@@ -7,7 +7,8 @@ import AuthLayout from '@/components/AuthLayout/AuthLayout';
 import Input from '@/components/Input/Input';
 import Button from '@/components/Button/Button';
 import { registerUser } from '@/lib/auth';
-import styles from './register.module.css';
+import { saveSession } from '@/lib/session';
+import styles from '../auth-shared.module.css';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -88,9 +89,8 @@ export default function RegisterPage() {
           ...result.user,
           username: formData.username,
         };
-        localStorage.setItem('token', result.token);
-        localStorage.setItem('user', JSON.stringify(userWithUsername));
-        router.push('/');
+        saveSession(userWithUsername, result.token);
+        router.push('/chat');
       } else {
         setGeneralError(result.error);
       }
@@ -118,9 +118,8 @@ export default function RegisterPage() {
         username: 'googleuser' + Math.floor(Math.random() * 1000),
       };
       
-      localStorage.setItem('token', 'mock-google-token');
-      localStorage.setItem('user', JSON.stringify(mockGoogleUser));
-      router.push('/');
+      saveSession(mockGoogleUser, 'mock-google-token');
+      router.push('/chat');
     } catch (error) {
       setGeneralError('Google sign up failed. Please try again.');
     } finally {
@@ -227,9 +226,9 @@ export default function RegisterPage() {
 
           <p className={styles.terms}>
             {"By signing up, you agree to our "}
-            <Link href="/terms" className={styles.link}>Terms of Service</Link>
+            <span className={styles.link}>Terms of Service</span>
             {" and "}
-            <Link href="/privacy" className={styles.link}>Privacy Policy</Link>
+            <span className={styles.link}>Privacy Policy</span>
           </p>
           
           <Button 

@@ -1,93 +1,52 @@
 .container {
   min-height: 100vh;
-
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background: var(--background);
-
-  padding: 20px;
+  padding: 1.25rem;
+  background:
+    radial-gradient(ellipse at top, rgba(168, 85, 247, 0.15), transparent 55%),
+    var(--bg);
 }
 
 .card {
   width: 100%;
-  max-width: 420px;
-
+  max-width: 440px;
   background: var(--surface);
-
   border: 1px solid var(--border);
-
-  border-radius: 24px;
-
-  padding: 32px;
-
-  box-shadow: var(--shadow);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-glow);
 }
 
-.logo {
+.logoWrapper {
   display: flex;
   justify-content: center;
-  align-items: baseline;
-
-  margin-bottom: 28px;
-
-  text-decoration: none;
-  gap: 0;
-}
-
-.logoX {
-  font-size: 50px;
-  font-weight: 800; /* slimmer than 900 */
-
-  color: var(--primary);
-
-  line-height: 1;
-
-  font-family: inherit;
-}
-
-.logoText {
-  font-size: 28px;
-  font-weight: 600;
-
-  color: var(--primary); /* 🔥 FIX: no more white */
-
-  margin-left: 0px;
-
-  letter-spacing: 0.5px;
-
-  line-height: 1;
-
-  font-family: inherit;
+  margin-bottom: 1.5rem;
 }
 
 .header {
   text-align: center;
-
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 }
 
 .title {
-  font-size: 30px;
+  font-size: 1.5rem;
   font-weight: 700;
-
-  margin-bottom: 10px;
-
+  margin-bottom: 0.5rem;
   color: var(--text);
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
-  color: var(--text-muted);
-
-  font-size: 15px;
-
-  line-height: 1.6;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-
-  gap: 18px;
+  gap: 1rem;
 }

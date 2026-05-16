@@ -1,44 +1,68 @@
-.logo {
-  display: flex;
-  align-items: center;
+.logoLink {
+  display: inline-flex;
+  text-decoration: none;
+}
 
-  -webkit-user-select: none;
+.logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
   user-select: none;
 }
 
 .large {
-  font-size: 34px;
+  font-size: 2.125rem;
+}
+
+.medium {
+  font-size: 1.625rem;
 }
 
 .small {
-  font-size: 26px;
+  font-size: 1.375rem;
 }
 
 .logoX {
-  background:
-    linear-gradient(
-      135deg,
-      #d946ef,
-      #7c3aed,
-      #3b82f6
-    );
-
+  position: relative;
+  z-index: 1;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  transform: skewX(-12deg) scale(1.05);
+  background: linear-gradient(
+    135deg,
+    #f0abfc 0%,
+    #d946ef 25%,
+    #7c3aed 55%,
+    #3b82f6 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
-
   -webkit-text-fill-color: transparent;
-
-  font-weight: 900;
-
-  transform: skewX(-10deg);
-
-  letter-spacing: -5px;
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.55));
 }
 
 .logoText {
-  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  margin-left: -0.12em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
 
-  font-weight: 700;
-
-  margin-left: -2px;
+.logoGlow {
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  width: 2.2em;
+  height: 2.2em;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.35) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
 }

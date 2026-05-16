@@ -1,16 +1,11 @@
+import styles from './empty.module.css';
+
 export default function ChatPage() {
   return (
-    <div
-      style={{
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#9ca3af',
-        fontSize: '18px',
-      }}
-    >
-      Select a conversation to start chatting
+    <div className={styles.empty}>
+      <div className={styles.icon}>💬</div>
+      <h2>Select a conversation</h2>
+      <p>Pick a chat from the inbox to start messaging.</p>
     </div>
   );
 }

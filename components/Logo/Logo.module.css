@@ -1,0 +1,68 @@
+.logoLink {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.large {
+  font-size: 2.125rem;
+}
+
+.medium {
+  font-size: 1.625rem;
+}
+
+.small {
+  font-size: 1.375rem;
+}
+
+.logoX {
+  position: relative;
+  z-index: 1;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  transform: skewX(-12deg) scale(1.05);
+  background: linear-gradient(
+    135deg,
+    #f0abfc 0%,
+    #d946ef 25%,
+    #7c3aed 55%,
+    #3b82f6 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.55));
+}
+
+.logoText {
+  position: relative;
+  z-index: 1;
+  margin-left: -0.12em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.logoGlow {
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  width: 2.2em;
+  height: 2.2em;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.35) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}

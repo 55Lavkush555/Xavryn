@@ -1,3 +1,4 @@
+// <<<<<<< HEAD
 "use client";
 
 import styles from "./ThemeToggle.module.css";

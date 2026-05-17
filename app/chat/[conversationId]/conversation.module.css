@@ -1,0 +1,114 @@
+.wrapper {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  min-height: 64px;
+  padding: 0 20px;
+  padding-left: max(20px, env(safe-area-inset-left));
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--bg);
+  backdrop-filter: blur(14px);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.userInfo h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.online {
+  font-size: 0.75rem;
+  color: var(--success);
+}
+
+.offline {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.headerActions {
+  display: flex;
+  gap: 4px;
+}
+
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.iconBtn:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+
+.iconBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  padding-top: 48px;
+}
+
+@media (min-width: 769px) {
+  .messages {
+    padding-top: 20px;
+  }
+}
+
+.dateGroup {
+  margin-bottom: 16px;
+}
+
+.dateLabel {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 12px;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.typing {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.notFound {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 1rem;
+}

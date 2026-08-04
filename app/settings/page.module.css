@@ -115,7 +115,8 @@
     color: rgb(125 128 138)
 }
 
-.profileSetting div>input, .profileSetting div>textarea {
+.profileSetting div>input,
+.profileSetting div>textarea {
     color: var(--text-color);
     font-size: 16px;
     border: 1px solid var(--border-color);
@@ -133,11 +134,13 @@
     resize: none;
 }
 
-.profileSetting div>input:hover, .profileSetting div>textarea:hover {
+.profileSetting div>input:hover,
+.profileSetting div>textarea:hover {
     outline: 1px solid #800080;
 }
 
-.profileSetting div>input:focus, .profileSetting div>textarea:focus {
+.profileSetting div>input:focus,
+.profileSetting div>textarea:focus {
     outline: 1px solid #800080;
     box-shadow: 0 0 5px #800080;
 }
@@ -145,6 +148,22 @@
 .save {
     display: flex;
     justify-content: end;
+}
+
+.save>.cancel {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+.save>.cancel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .save>button {
@@ -218,7 +237,7 @@
 .hover:hover {
     background: linear-gradient(0deg, #800080, #33006F);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 700px) {
@@ -230,5 +249,15 @@
     .settings nav {
         width: 100%;
         padding: 0px;
+    }
+}
+
+@media (max-width: 390px) {
+    .save>button {
+        font-size: 15px;
+    }
+
+    .cancel {
+        font-size: 15px;
     }
 }

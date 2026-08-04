@@ -4,8 +4,18 @@ import styles from "./page.module.css"
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle'
 import { motion } from "framer-motion";
 import Link from 'next/link';
+import { useState } from 'react';
 
 const page = () => {
+    const [userName, setUserName] = useState("")
+    const [displayName, setDisplayName] = useState("")
+    const [bio, setBio] = useState("")
+
+    const handleCancel = () => {
+        setUserName("")
+        setDisplayName("")
+        setBio("")
+    }
 
     return (
         <div className={styles.settings}>
@@ -43,17 +53,18 @@ const page = () => {
                     </div>
                     <div>
                         <p>Display name</p>
-                        <input type="text" placeholder='e.g. Jhon Doe' />
+                        <input type="text" value={displayName} onChange={(e)=> setDisplayName(e.target.value)} />
                     </div>
                     <div>
                         <p>Username</p>
-                        <input type="text" placeholder='e.g. Jhon.dev' />
+                        <input type="text" value={userName} onChange={(e)=> setUserName(e.target.value)} />
                     </div>
                     <div>
                         <p>Bio</p>
-                        <textarea name="Bio" id=""></textarea>
+                        <textarea name="Bio" id="" value={bio} onChange={(e)=> setBio(e.target.value)}></textarea>
                     </div>
                     <div className={styles.save}>
+                        <button className={styles.cancel} onClick={handleCancel} >Cancel</button>
                         <button className={styles.hover}>Save Changes</button>
                     </div>
                 </motion.div>
